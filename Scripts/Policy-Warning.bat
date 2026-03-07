@@ -1,0 +1,1 @@
+powershell.exe -ExecutionPolicy Bypass -File "C:\Users\Production\Dropbox\Software Updates\IT-Admin\Policy-Warning.ps1"
