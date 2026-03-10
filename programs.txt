@@ -1,0 +1,41 @@
+﻿7-Zip
+AC-3 ACM Codec
+advanced-scene-switcher
+AVerMedia
+Dell Connected Service
+Dell Core Services
+Dropbox
+Dropbox Update Helper
+ESET
+FileZilla
+Google Chrome
+HandBrake
+ImageMagick
+Irfanview
+Intel
+Killer Ethernet Performance Driver Suite
+loopMIDIBlockLegacy
+MediaInfo
+Microsoft .NET
+Microsoft Access
+Microsoft Office
+Microsoft Edge
+Microsoft OneNote
+Microsoft Teams
+Microsoft Update Health Tools
+Microsoft Visual C++
+Microsoft Windows Desktop Runtime
+NVIDIA
+NvModuleTracker
+OBS Studio
+Office 16 Click-to-Run
+Realtek Audio Driver
+rtpMIDIBlockLegacy
+TeamViewer
+teVirtualMIDI for Presonus
+teVirtualMIDI64
+Universal Control
+Voicemeeter
+VLC media player
+ZOOM F6 Driver
+ZOOM_Audio_Interface_with_Rec_ASIO64
