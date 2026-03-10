@@ -1,1 +1,0 @@
-powershell.exe -ExecutionPolicy Bypass -File "C:\Users\Production\Dropbox\Software Updates\IT-Admin\Infield-Software-Audit.ps1"
