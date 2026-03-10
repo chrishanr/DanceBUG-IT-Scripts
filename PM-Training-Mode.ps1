@@ -9,7 +9,7 @@ $NewShortcutSource   = "C:\ProgramData\IT-Admin\Scripts\Photo Manager - Training
 $PublicDesktop       = "C:\Users\Production\Desktop"
 
 $WebhookUrl = "https://defaulteb6ac93710a44e86adf0ee412b4651.69.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/fbdbc04a4a6b466b912f6775ed0a021b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wibGRHpjHdWHWE50xS0_VdHtrrkdbjyeSdfKQseCpZU"
-$LogPath    = "C:\ProgramData\IT-Admin\PMTrainingMode.log"
+$LogPath    = "C:\ProgramData\IT-Admin\logs\PMTrainingMode.log"
 
 # -------- LOGGING FUNCTION --------
 function Write-Log {

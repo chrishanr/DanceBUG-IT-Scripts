@@ -6,7 +6,7 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 # Log location
-$LogFolder = "C:\ProgramData\IT-Admin"
+$LogFolder = "C:\ProgramData\IT-Admin\logs"
 $LogFile = "$LogFolder\PolicyAcknowledgement.log"
 
 if (!(Test-Path $LogFolder)) {

@@ -1,3 +1,19 @@
+# ================================
+# Close Lid Settings
+# ================================
+
+$LogPath = "C:\ProgramData\IT-Admin\logs\CloseLid.log"
+
+# --- Logging Function ---
+function Write-Log {
+    param ($Message)
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    Add-Content -Path $LogPath -Value "$timestamp - $Message"
+}
+
+Write-Log "Starting close lid settings..."
+
+
 # Ensure hibernate is available (required for some lid actions)
 powercfg /hibernate off
 
@@ -21,3 +37,5 @@ powercfg /setactive $current
 
 # Refresh power policy
 powercfg /qh > $null
+
+Write-Log "Close lid settings complete"
