@@ -20,9 +20,33 @@ function Write-Log {
 
 Write-Log "========== Starting Training Mode Deployment =========="
 
-# -------- VALIDATE PUBLIC DESKTOP --------
+function Stop-ProgramAndRenameFolders {
+
+    # --- Program to close ---
+    $ProcessName = "DanceBUGPhotoManager"   # example: OBS64 or chrome (no .exe)
+
+    # Stop program if running
+    $proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue
+    if ($proc) {
+        Write-Output "$ProcessName is running. Closing it..."
+        Stop-Process -Name $ProcessName -Force
+        Start-Sleep -Seconds 2
+    }
+
+    # --- Rename folders starting with E26 in C:\ ---
+    $Folders = Get-ChildItem "C:\" -Directory -Filter "E26*" -ErrorAction SilentlyContinue
+
+    foreach ($Folder in $Folders) {
+        $NewName = $Folder.Name -replace "^E26","T26"
+        Rename-Item $Folder.FullName -NewName $NewName -Force
+        Write-Output "Renamed $($Folder.Name) to $NewName"
+    }
+}
+Stop-ProgramAndRenameFolders
+
+# -------- VALIDATE Production DESKTOP --------
 if (-not (Test-Path $PublicDesktop)) {
-    Write-Log "Public Desktop path not found: $PublicDesktop"
+    Write-Log "Production Desktop path not found: $PublicDesktop"
     exit
 }
 
