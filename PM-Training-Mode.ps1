@@ -5,7 +5,7 @@
 # -------- CONFIG --------
 $OldShortcutName     = "Photo Manager.lnk"
 $NewShortcutName     = "Photo Manager - Training Mode.lnk"
-$NewShortcutSource   = "C:\ProgramData\IT-Admin\Scripts\Photo Manager - Training Mode.lnk"
+$NewShortcutSource   = "C:\ProgramData\IT-Admin\Photo Manager - Training Mode.lnk"
 $PublicDesktop       = "C:\Users\Production\Desktop"
 
 $WebhookUrl = "https://defaulteb6ac93710a44e86adf0ee412b4651.69.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/fbdbc04a4a6b466b912f6775ed0a021b/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wibGRHpjHdWHWE50xS0_VdHtrrkdbjyeSdfKQseCpZU"
@@ -20,9 +20,24 @@ function Write-Log {
 
 Write-Log "========== Starting Training Mode Deployment =========="
 
+function Stop-Program {
+
+    # --- Program to close ---
+    $ProcessName = "DanceBUGPhotoManager"   # example: obs64, chrome, etc (no .exe)
+
+    # Close program if running
+    $proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue
+    if ($proc) {
+        Write-Output "$ProcessName is running. Closing it..."
+        Stop-Process -Name $ProcessName -Force
+        Start-Sleep -Seconds 3
+    }
+}
+Stop-Program
+
 # -------- VALIDATE PUBLIC DESKTOP --------
 if (-not (Test-Path $PublicDesktop)) {
-    Write-Log "Public Desktop path not found: $PublicDesktop"
+    Write-Log "Production Desktop path not found: $PublicDesktop"
     exit
 }
 
