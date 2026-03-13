@@ -23,23 +23,30 @@ Write-Log "========== Starting Training Mode Deployment =========="
 function Stop-ProgramAndRenameFolders {
 
     # --- Program to close ---
-    $ProcessName = "DanceBUGPhotoManager"   # example: OBS64 or chrome (no .exe)
+    $ProcessName = "DanceBUGPhotoManager"   # example: obs64, chrome, etc (no .exe)
 
-    # Stop program if running
+    # Close program if running
     $proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue
     if ($proc) {
         Write-Output "$ProcessName is running. Closing it..."
         Stop-Process -Name $ProcessName -Force
-        Start-Sleep -Seconds 2
+        Start-Sleep -Seconds 3
     }
 
-    # --- Rename folders starting with E26 in C:\ ---
-    $Folders = Get-ChildItem "C:\" -Directory -Filter "E26*" -ErrorAction SilentlyContinue
+    # --- Get all filesystem drives ---
+    $Drives = Get-PSDrive -PSProvider FileSystem | Where-Object {$null -ne $_.Free }
 
-    foreach ($Folder in $Folders) {
-        $NewName = $Folder.Name -replace "^E26","T26"
-        Rename-Item $Folder.FullName -NewName $NewName -Force
-        Write-Output "Renamed $($Folder.Name) to $NewName"
+    foreach ($Drive in $Drives) {
+
+        Write-Output "Checking drive $($Drive.Name):\"
+
+        $Folders = Get-ChildItem "$($Drive.Name):\" -Directory -Filter "E26*" -ErrorAction SilentlyContinue
+
+        foreach ($Folder in $Folders) {
+            $NewName = $Folder.Name -replace "^E26","T26"
+            Rename-Item $Folder.FullName -NewName $NewName -Force
+            Write-Output "Renamed $($Folder.FullName) to $NewName"
+        }
     }
 }
 Stop-ProgramAndRenameFolders
