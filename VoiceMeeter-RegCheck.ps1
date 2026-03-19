@@ -10,10 +10,11 @@ function Write-Log {
 }
 
 # --- Check ID Type ---
-$IdFile = "C:\DB\Files\ID_TYPE.txt"
+$IdFile = "C:\DB\Files\ID-TYPE.txt"
 
 if (!(Test-Path $IdFile)) {
-    Write-Output "ID_TYPE.txt not found. Exiting script."
+    Write-Output "ID-TYPE.txt not found. Exiting script."
+    Write-Log "ID_TYPE.txt not found. Exiting script."
     exit
 }
 
@@ -21,6 +22,7 @@ $IdType = (Get-Content $IdFile -Raw).Trim()
 
 if ($IdType -ne "Capture") {
     Write-Output "Device is not a Capture machine ($IdType). Exiting script."
+    Write-Log "ID_TYPE.txt not found. Exiting script."
     exit
 }
 
