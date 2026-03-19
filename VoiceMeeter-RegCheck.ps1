@@ -9,23 +9,6 @@ function Write-Log {
     "$timestamp - $Message" | Out-File -FilePath $LogFile -Append -Encoding utf8
 }
 
-# --- Check ID Type ---
-$IdFile = "C:\DB\Files\ID-TYPE.txt"
-
-if (!(Test-Path $IdFile)) {
-    Write-Output "ID-TYPE.txt not found. Exiting script."
-    Write-Log "ID-TYPE.txt not found. Exiting script."
-    exit
-}
-
-$IdType = (Get-Content $IdFile -Raw).Trim()
-
-if ($IdType -ne "Capture") {
-    Write-Output "Device is not a Capture machine ($IdType). Exiting script."
-    Write-Log "Device is not a Capture machine ($IdType). Exiting script."
-    exit
-}
-
 # --- Get logged-in user ---
 $User = (Get-CimInstance Win32_ComputerSystem).UserName
 
@@ -56,6 +39,26 @@ if (Test-Path $RegPath) {
         $Serial = $null
     }
 }
+
+# --- Check ID Type ---
+$IdFile = "C:\DB\Files\ID-TYPE.txt"
+
+if (!(Test-Path $IdFile)) {
+    Write-Output "ID-TYPE.txt not found. Exiting script."
+    Write-Log "ID-TYPE.txt not found. Exiting script."
+    exit
+}
+
+$IdType = (Get-Content $IdFile -Raw).Trim()
+
+if ($IdType -ne "Capture") {
+    Write-Output "Device is not a Capture machine ($IdType). Exiting script."
+    Write-Log "Device is not a Capture machine ($IdType). Exiting script."
+    exit
+}
+
+
+
 
 # --- Result ---
 if ($null -ne $Serial -and $Serial -ne "") {
