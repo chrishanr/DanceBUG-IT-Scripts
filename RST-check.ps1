@@ -104,4 +104,4 @@ catch {
     Write-Log "Failed to send Teams adaptive card: $_"
 }
 
-Write-Log "Training mode script completed."
+Write-Log "RST Check script completed."
