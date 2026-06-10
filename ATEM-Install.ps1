@@ -1,7 +1,7 @@
 # ================================
 # CONFIG
 # ================================
-$ZipUrl        = "https://swr.cloud.blackmagicdesign.com/ATEM/v10.2.1/Blackmagic_ATEM_Switchers_Windows_10.2.1.zip?verify=1780685836-JN6pnuLuZJ3noZp57%2F1E%2BEVVRSQSuGRkdSwf8BhClIA%3D"
+$ZipUrl        = "https://swr.cloud.blackmagicdesign.com/ATEM/v10.2.1/Blackmagic_ATEM_Switchers_Windows_10.2.1.zip?verify=1781101100-pm%2BWeqxcMEKY0ofq48JEdBUhKO5YxeuJXyCnQRbC%2Bwk%3D"
 $WorkDir       = "C:\DanceBUG\ESETDeploy"
 $ZipPath       = "$WorkDir\Blackmagic_ATEM_Switchers_Windows_10.2.1.zip"
 $InstallerPath = "$WorkDir\Blackmagic_ATEM_Switchers\Install ATEM v10.2.1.exe"
