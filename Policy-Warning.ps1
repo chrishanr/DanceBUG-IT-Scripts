@@ -15,7 +15,7 @@ if (!(Test-Path $LogFolder)) {
 
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'DanceBUG IT Policy Warning'
-$form.Size = New-Object System.Drawing.Size(520,250)
+$form.Size = New-Object System.Drawing.Size(520,300)
 $form.StartPosition = 'CenterScreen'
 $form.TopMost = $true
 $form.FormBorderStyle = 'FixedDialog'
@@ -30,7 +30,7 @@ $form.Controls.Add($icon)
 
 # Message
 $label = New-Object System.Windows.Forms.Label
-$label.Text = "One or more unauthorized programs have been detected on this device.`n`nPlease uninstall the program(s) as soon as possible. `n`nContact it-support@dancebug.com if you have any questions.`n"
+$label.Text = "One or more unauthorized programs have been detected `non this device. `n`nPlease uninstall the program(s) as soon as possible. `n`nContact it-support@dancebug.com if you have any questions.`n"
 $label.AutoSize = $true
 $label.Location = New-Object System.Drawing.Point(80,20)
 $form.Controls.Add($label)
@@ -39,18 +39,17 @@ $form.Controls.Add($label)
 $link = New-Object System.Windows.Forms.LinkLabel
 $link.Text = "Click here to review the Computer Usage Policy"
 $link.AutoSize = $true
-$link.Location = New-Object System.Drawing.Point(80,100)
+$link.Location = New-Object System.Drawing.Point(80,140)
 $link.Add_Click({
-    Start-Process "https://drcvid-my.sharepoint.com/:w:/g/personal/chrishanr_dancebug_com/IQBuBCvX4_TiSrOpFAKRmxVgAVY2XAFGZ0VBSK1wFkvKTpc?e=57Wt8c"
-})
+    Start-Process "https://drcvid-my.sharepoint.com/:w:/g/personal/chrishanr_dancebug_com/IQBuBCvX4_TiSrOpFAKRmxVgAVY2XAFGZ0VBSK1wFkvKTpc?e=57Wt8c"})
 $form.Controls.Add($link)
 
 # OK Button
 $button = New-Object System.Windows.Forms.Button
-$button.Text = "OK"
-$button.Width = 80
+$button.Text = "Acknowledge"
+$button.Width = 100
 $button.Height = 30
-$button.Location = New-Object System.Drawing.Point(210,160)
+$button.Location = New-Object System.Drawing.Point(200,200)
 
 $button.Add_Click({
 
